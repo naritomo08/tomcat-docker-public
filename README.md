@@ -2,7 +2,7 @@
 
 tomcat(java)/apache/mysql稼働環境
 
-maven開発環境(Springboot対応)
+maven開発環境
 
 ## コンテナ構成
 
