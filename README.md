@@ -12,7 +12,7 @@ mysql(5.7.33)
 adminer
 maven開発(openjdk11)
 
-## コンテナ利用方法
+## コンテナ展開方法
 
 ```bash
 git clone https://github.com/naritomo08/tomcat-docker-public.git
