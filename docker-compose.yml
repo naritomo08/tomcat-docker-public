@@ -1,0 +1,58 @@
+version: "3.9"
+services:
+  tomcat:
+    image: "tomcat:9"
+    ports:
+      - "8080:8080"
+    volumes:
+      - "./webapps:/usr/local/tomcat/webapps"
+    environment:
+      - TZ=Asia/Tokyo
+    networks:
+      - app-network
+
+  apache:
+    image: "httpd:latest"
+    ports:
+      - "80:80"
+    volumes:
+      - "./httpd.conf:/usr/local/apache2/conf/httpd.conf"
+    networks:
+      - app-network
+
+  mysql_db:
+    platform: linux/x86_64
+    image: mysql:5.7.33
+    volumes:
+      - ./infra/docker/mysql/volume:/var/lib/mysql
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: tomcatdb
+      MYSQL_USER: tomcat
+      MYSQL_PASSWORD: password
+      TZ: 'Asia/Tokyo'
+    networks:
+      - app-network
+
+  adminer:
+    image: adminer:4.8.0
+    ports:
+      - "8081:8080"
+    depends_on:
+      - mysql_db
+    networks:
+      - app-network
+  
+  maven:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./my-tomcat-project:/app
+      - ~/.m2:/root/.m2
+    command: tail -f /dev/null
+
+networks:
+  app-network:
+    driver: bridge
