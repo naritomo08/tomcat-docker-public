@@ -1,4 +1,4 @@
-# tomcat-docker
+# tomcat-docker-public
 
 tomcat(java)/apache/mysql稼働環境
 
