@@ -1,7 +1,7 @@
 version: "3.9"
 services:
   tomcat:
-    image: "tomcat:9"
+    image: "tomcat:10-jdk17-corretto"
     ports:
       - "8080:8080"
     volumes:
