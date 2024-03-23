@@ -1,6 +1,7 @@
 version: "3.9"
 services:
   tomcat:
+    platform: linux/x86_64
     image: "tomcat:10-jdk17-corretto"
     ports:
       - "8080:8080"
@@ -32,6 +33,17 @@ services:
       MYSQL_USER: tomcat
       MYSQL_PASSWORD: password
       TZ: 'Asia/Tokyo'
+    networks:
+      - app-network
+
+  postgres:
+    image: postgres:12.6
+    volumes:
+      - ./infra/docker/postgres/volume:/var/lib/postgresql/data:cached
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      PGDATA: /var/lib/postgresql/data/pgdata
     networks:
       - app-network
 
