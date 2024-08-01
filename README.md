@@ -95,6 +95,11 @@ vi pom.xml
           <target>11</target>
         </configuration>
       </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>3.3.2</version>
+      </plugin>
     </plugins>
 ```
 
@@ -125,7 +130,7 @@ public class HelloServlet extends HttpServlet {
 ```
 
 ```bash
-vi src/main/webapp/WEB-INF
+vi src/main/webapp/WEB-INF/web.xml
 
 以下の内容を<web-app>~</web-app>内に追記する。
 
