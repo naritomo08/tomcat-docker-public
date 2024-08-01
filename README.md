@@ -110,7 +110,9 @@ vi pom.xml
 ```bash
 mkdir src/main/java
 vi src/main/java/HelloServlet.java
+```
 
+```bash
 package com.example;
 
 import java.io.IOException;
