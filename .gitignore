@@ -5,3 +5,4 @@
 !/infra/docker/postgres/.gitignore
 /my-tomcat-project/
 !/my-tomcat-project/.gitkeep
+.DS_store
