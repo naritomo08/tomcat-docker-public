@@ -1,8 +1,5 @@
 /webapps/
-!/webapps/.gitkeep
 /infra/
-!/infra/docker/mysql/.gitignore
-!/infra/docker/postgres/.gitignore
 /my-tomcat-project/
-!/my-tomcat-project/.gitkeep
+
 .DS_store
